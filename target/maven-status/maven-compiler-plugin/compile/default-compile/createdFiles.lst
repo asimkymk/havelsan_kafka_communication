@@ -1,0 +1,7 @@
+message/types/Status.class
+serialization/ObjectDeserializer.class
+serialization/ObjectSerializer.class
+connections/IAppConfigs.class
+message/types/Action.class
+org/havelsan/kafkacommunication/StatusProducer.class
+org/havelsan/kafkacommunication/StatusConsumer.class
