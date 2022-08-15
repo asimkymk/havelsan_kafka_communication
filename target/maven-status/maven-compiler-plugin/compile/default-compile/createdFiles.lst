@@ -1,7 +1,10 @@
 message/types/Status.class
 serialization/ObjectDeserializer.class
+model/DateConverter.class
+pubsub/ActionConsumer.class
 serialization/ObjectSerializer.class
 connections/IAppConfigs.class
 message/types/Action.class
-org/havelsan/kafkacommunication/StatusProducer.class
-org/havelsan/kafkacommunication/StatusConsumer.class
+pubsub/StatusConsumer.class
+pubsub/StatusProducer.class
+pubsub/ActionProducer.class

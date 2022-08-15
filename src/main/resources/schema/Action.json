@@ -15,7 +15,11 @@
       "type": "string"
     },
     "action_date": {
-      "type": "long"
+      "type": "Long"
+    },
+    "empty_area": {
+      "type": "Object"
     }
+    
   }
 }

@@ -4,8 +4,6 @@ package message.types;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.io.Serializable;
-import model.DateConverter;
 import org.apache.commons.lang.builder.ToStringBuilder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -14,9 +12,10 @@ import org.apache.commons.lang.builder.ToStringBuilder;
     "action",
     "action_name",
     "action_properties",
-    "action_date"
+    "action_date",
+    "empty_area"
 })
-public class Action implements Serializable {
+public class Action {
 
     @JsonProperty("sender_id")
     private String senderId;
@@ -28,6 +27,8 @@ public class Action implements Serializable {
     private String actionProperties;
     @JsonProperty("action_date")
     private Object actionDate;
+    @JsonProperty("empty_area")
+    private Object emptyArea;
 
     @JsonProperty("sender_id")
     public String getSenderId() {
@@ -79,9 +80,19 @@ public class Action implements Serializable {
         this.actionDate = actionDate;
     }
 
+    @JsonProperty("empty_area")
+    public Object getEmptyArea() {
+        return emptyArea;
+    }
+
+    @JsonProperty("empty_area")
+    public void setEmptyArea(Object emptyArea) {
+        this.emptyArea = emptyArea;
+    }
+
     @Override
     public String toString() {
-        return new ToStringBuilder(this).append("senderId", senderId).append("action", action).append("actionName", actionName).append("actionProperties", actionProperties).append("actionDate", DateConverter.longToStringDate(actionDate)).toString();
+        return new ToStringBuilder(this).append("senderId", senderId).append("action", action).append("actionName", actionName).append("actionProperties", actionProperties).append("actionDate", actionDate).append("emptyArea", emptyArea).toString();
     }
 
 }
