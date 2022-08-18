@@ -4,6 +4,7 @@ package message.types;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.io.Serializable;
 import org.apache.commons.lang.builder.ToStringBuilder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -15,7 +16,7 @@ import org.apache.commons.lang.builder.ToStringBuilder;
     "action_date",
     "empty_area"
 })
-public class Action {
+public class Action implements Serializable {
 
     @JsonProperty("sender_id")
     private String senderId;

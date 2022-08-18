@@ -24,7 +24,7 @@ public class StatusProducer {
 
     static Logger logger = LogManager.getLogger(StatusProducer.class.getName());
 
-    public static void main(String[] args) throws InterruptedException {
+    /*public static void main(String[] args) throws InterruptedException {
         KafkaProducer<String, Status> kafkaProducer = new KafkaProducer<String, Status>(getKafkaProducerConfig());
         Status status = getStatus();
 
@@ -38,6 +38,20 @@ public class StatusProducer {
         logger.info("Producer closed...");
         Thread.sleep(2);
 
+    }*/
+    public static void publishMessage() throws InterruptedException{
+        KafkaProducer<String, Status> kafkaProducer = new KafkaProducer<String, Status>(getKafkaProducerConfig());
+        Status status = getStatus();
+
+        ProducerRecord<String, Status> statusRecord = new ProducerRecord<>(IAppConfigs.STATUS_TOPIC,
+                "status", status);
+        kafkaProducer.send(statusRecord);
+
+        logger.info("Event published...");
+        kafkaProducer.flush();
+        kafkaProducer.close();
+        logger.info("Producer closed...");
+        Thread.sleep(2);
     }
 
     private static Status getStatus() {
